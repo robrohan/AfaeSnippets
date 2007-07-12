@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<snippet filetemplate="false" extension="txt">
+<name>Get Array</name>
+<help>Quick $_GET array</help>
+<starttext><![CDATA[$_GET["]]></starttext>
+<endtext><![CDATA["]]]></endtext>
+</snippet>

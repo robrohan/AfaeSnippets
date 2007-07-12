@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<snippet filetemplate="false" extension="txt">
+<name>DocType</name>
+<help>Add a simple doc type</help>
+<starttext><![CDATA[<!DOCTYPE $${Top Element:schema|html|web-app|root} $${Availability:PUBLIC|SYSTEM} "$${Public Schema:-//OASIS//DTD DocBook XML//EN|-//W3C//DTD HTML 4.01//EN|-//W3C//DTD XHTML 1.0 Strict//EN|-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN|-//ANT//DTD project//EN}" "$${Public File}">
+]]></starttext>
+<endtext><![CDATA[]]></endtext>
+</snippet>

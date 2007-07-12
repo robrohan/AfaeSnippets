@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<snippet filetemplate="false" extension="txt">
+<name>Implementation</name>
+<help>Simple implementation block</help>
+<starttext><![CDATA[@implementation $${Class Name}
+
+- (id)init
+{
+	[super init];
+	return self;
+}
+]]></starttext>
+<endtext><![CDATA[
+
+- (void)dealloc
+{
+	[super dealloc];
+}
+
+@end]]></endtext>
+</snippet>

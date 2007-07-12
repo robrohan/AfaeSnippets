@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<snippet filetemplate="false" extension="txt">
+<name>Class</name>
+<help>Simple CSS Class</help>
+<starttext><![CDATA[.$${Class Name}
+{
+	]]></starttext>
+<endtext><![CDATA[
+}]]></endtext>
+</snippet>

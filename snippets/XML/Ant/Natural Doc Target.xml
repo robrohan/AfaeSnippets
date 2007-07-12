@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<snippet filetemplate="false" extension="txt">
+<name>Natural Doc Target</name>
+<help>Creates a target for the Natural Doc program</help>
+<starttext><![CDATA[<!-- Note: this requires the HeaderDoc program which is written in perl and can 
+	run on any system ... http://www.naturaldocs.org/ -->
+<target name="naturaldocument">
+	<mkdir dir="$${Document Directory:doc}"/>
+	<mkdir dir="$${Working Directory}"/>
+		
+	<exec executable="$${Natural Doc Program Path:/Applications/NaturalDocs/NaturalDocs}">
+		<arg line="-o $${Format:HTML} $${Document Directory:doc}"/>
+		<arg line="-i $${Input Directory:src}"/>
+		<arg line="-p $${Working Directory}"/>
+	</exec>
+</target>]]></starttext>
+<endtext><![CDATA[]]></endtext>
+</snippet>

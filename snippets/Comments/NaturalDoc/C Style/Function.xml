@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<snippet filetemplate="false" extension="txt">
+<name>Function</name>
+<help>Function type</help>
+<starttext><![CDATA[/**
+ * Function: $${Function Name}
+ * ]]></starttext>
+<endtext><![CDATA[
+ * 
+ * Parameters:
+ * 	
+ * Returns:
+ * 	
+ */]]></endtext>
+</snippet>

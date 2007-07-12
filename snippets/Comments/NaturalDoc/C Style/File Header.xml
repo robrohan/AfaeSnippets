@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<snippet filetemplate="false" extension="txt">
+<name>File Header</name>
+<help>A typical comment for the top of the file</help>
+<starttext><![CDATA[/**
+ * File: $${CURRENTPRJPATH}/$${CURRENTFILE}
+ * ]]></starttext>
+<endtext><![CDATA[
+ *
+ * Copyright:
+ * 	$${YEAR} $${USERNAME} ($${Email Address})
+ */]]></endtext>
+</snippet>

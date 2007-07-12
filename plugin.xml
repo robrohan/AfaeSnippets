@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+	<extension point="org.eclipse.ui.views">
+		<category name="Snippets"
+			id="com.rohanclan.snippets">
+		</category>
+		
+		<view name="Snippets"
+			icon="icons/obj16/snippet.gif"
+			category="com.rohanclan.afae"
+			class="com.rohanclan.snippets.views.SnipTreeView"
+			id="com.rohanclan.snippets.views.SnipTreeViewId">
+		</view>
+	</extension>
+	
+	<!-- org.eclipse.ui.views.TaskList -->
+	<extension
+		point="org.eclipse.ui.perspectiveExtensions">
+		<perspectiveExtension
+			targetID="com.rohanclan.afae.perspective.AfaePerspectiveId">
+		<view
+			ratio="0.8"
+			relative="org.eclipse.ui.views.ResourceNavigator"
+			relationship="stack"
+			id="com.rohanclan.snippets.views.SnipTreeViewId">
+		</view>
+		</perspectiveExtension>
+	</extension>
+	
+	<!-- //// //// -->
+	<extension point="org.eclipse.ui.editorActions">
+		<editorContribution
+			targetID="com.rohanclan.afae.editor.AfaeEditor"
+			id="AfaeEditor.actions"
+		>
+			<menu label="Afae" id="AfaeEditor.afaemenu">
+				<separator name="maingroup"></separator>
+			</menu>
+			
+			<!-- 
+				tooltip="Insert the selected Snippet"
+				icon="icons/obj16/comment.gif"
+				menubarPath="AfaeEditor.afaemenu/maingroup"
+				toolbarPath="AfaeEditorToolbar"
+			 -->
+			<action 
+				definitionId="AfaeSnippets.InsertSnippet"
+				label="Insert S&amp;nippet"
+				id="AfaeSnippets.InsertSnippet"
+				class="com.rohanclan.snippets.actions.InsertSnippetAction"
+			></action>
+		</editorContribution>
+	</extension>
+	
+	<!-- //// //// -->
+	<extension point="org.eclipse.ui.commands">
+		<category
+			name="Afae Editor"
+			description="Afae Editor key bindings"
+			id="Afae.commandCategory">
+		</category>
+		
+		<command
+			name="Insert Snippet"
+			categoryId="Afae.commandCategory"
+			id="AfaeSnippets.InsertSnippet">
+		</command>
+	</extension>
+	
+	<!-- //// //// -->
+	<extension point="org.eclipse.ui.bindings">
+		<!-- /// MAC /// alt+space -->
+		<key sequence="M3+SPACE"
+			commandId="AfaeSnippets.InsertSnippet"
+			contextId="org.eclipse.ui.textEditorScope"
+			schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+			platform="carbon"
+		>
+		</key>
+		
+		<!-- /// NON Mac /// alt+shift+space -->
+		<key sequence="M3+M2+SPACE"
+			commandId="AfaeSnippets.InsertSnippet"
+			contextId="org.eclipse.ui.textEditorScope"
+			schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+			platform="carbon"
+		>
+		</key>
+	</extension>
+	
+</plugin>

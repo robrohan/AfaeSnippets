@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<snippet filetemplate="false" extension="txt">
+<name>Copy Replace</name>
+<help>Copy a file from one place to another and replace variables within the file</help>
+<starttext><![CDATA[<copy todir="$${To Directory}">
+	<fileset dir="$${From Directory}">
+		<include name="$${File Name}" />
+	</fileset>
+	<filterset>
+		<!-- add more as needed. Variables in the file should be
+			in the form @VARNAME@ -->
+		<filter token="$${Variable}" value="$${Value}" />
+	</filterset>
+</copy>]]></starttext>
+<endtext><![CDATA[]]></endtext>
+</snippet>

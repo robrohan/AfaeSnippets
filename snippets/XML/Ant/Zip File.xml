@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<snippet filetemplate="false" extension="txt">
+<name>Zip File</name>
+<help>Simple file zip task</help>
+<starttext><![CDATA[<zip destfile="$${File Name:myfile.zip}"
+	basedir="$${Directory:.}"
+	includes="$${Includes:**/*.java, build.xml, readme.txt, license.txt}"
+	excludes="$${Excludes:**/.svn,**/.DS_Store}"
+/>]]></starttext>
+<endtext><![CDATA[]]></endtext>
+</snippet>

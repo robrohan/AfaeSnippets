@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<snippet filetemplate="false" extension="txt">
+<name>BasicDoc</name>
+<help>A simple, basic, xml document</help>
+<starttext><![CDATA[<?xml version="$${Version:1.0}" encoding="$${Encoding:utf-8|utf-16|iso-8859-1}" ?>
+<root>
+	]]></starttext>
+<endtext><![CDATA[
+</root>]]></endtext>
+</snippet>

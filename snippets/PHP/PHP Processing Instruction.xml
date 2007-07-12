@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<snippet filetemplate="false" extension="txt">
+<name>PHP Processing Instruction</name>
+<help>Creates a PHP Processing Instruction</help>
+<starttext><![CDATA[<?php ]]></starttext>
+<endtext><![CDATA[ ?>]]></endtext>
+</snippet>

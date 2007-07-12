@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<snippet filetemplate="false" extension="txt">
+<name>Embed Flash</name>
+<help>Embed an SWF into a page</help>
+<starttext><![CDATA[<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="$${Width:320}" height="$${Height:240}" id="$${ID:flash1}">
+<param name="movie" value="$${SWF Path}" /><param name="quality" value="$${Quality:high|low}" /><param name="bgcolor" value="$${Background:#FFFFFF}" /><embed src="$${SWF Path}" quality="$${Quality:high|low}" bgcolor="$${Background:#FFFFFF}" width="$${Width:320}" height="$${Height:240}" name="$${ID:flash1}" type="application/x-shockwave-flash" pluginspace="http://www.macromedia.com/go/getflashplayer"></embed></object>]]></starttext>
+<endtext><![CDATA[]]></endtext>
+</snippet>
