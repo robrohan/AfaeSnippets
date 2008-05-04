@@ -51,7 +51,7 @@ public class SnipDialog extends Dialog
 {
     protected String title;
     
-    private ArrayList itemList;
+    private ArrayList<SnipVarItem> itemList;
 
     private Combo combo;
     private Text text;
@@ -77,16 +77,16 @@ public class SnipDialog extends Dialog
         container.setLayout(gl);
         FontData labelFontData = new FontData();
         labelFontData.setStyle(SWT.BOLD);
-        FontData[] containerFontData = container.getFont().getFontData();
-        labelFontData.setHeight(containerFontData[0].height);
+        //FontData[] containerFontData = container.getFont().getFontData();
+        //labelFontData.setHeight(containerFontData[0].height);
         Font labelFont = new Font(parent.getDisplay(), labelFontData);
         
-        Iterator i = itemList.iterator();
+        Iterator<SnipVarItem> i = itemList.iterator();
         SnipVarItem item;
         
         while (i.hasNext())
         {
-            item = (SnipVarItem)i.next();
+            item = i.next();
 
             Label label = new Label(container,SWT.HORIZONTAL);
             label.setText(item.getName() + ":");
@@ -152,7 +152,7 @@ public class SnipDialog extends Dialog
 	{
 		if (buttonId == IDialogConstants.OK_ID) 
 		{
-			Iterator i = itemList.iterator();
+			Iterator<SnipVarItem> i = itemList.iterator();
           
 			while (i.hasNext()) 
 			{
@@ -162,7 +162,7 @@ public class SnipDialog extends Dialog
 		super.buttonPressed(buttonId);
 	}
     
-    public void setItemList(ArrayList itemList) 
+    public void setItemList(ArrayList<SnipVarItem> itemList) 
     {
         this.itemList = itemList;
     }
