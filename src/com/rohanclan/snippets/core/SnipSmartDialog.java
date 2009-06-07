@@ -62,7 +62,7 @@ public class SnipSmartDialog
 			
 			SnipVarItem item = new SnipVarItem(variable,optionValArray,expression);
 			
-			Iterator i = list.iterator();
+			Iterator<SnipVarItem> i = list.iterator();
 			
 			boolean duplicateItem = false;
 			while(i.hasNext()) {
@@ -85,7 +85,7 @@ public class SnipSmartDialog
 		    dia.setTitle("Replace  variables");
 		    if(dia.open() == org.eclipse.jface.window.Window.OK){
 		        try {
-			        Iterator i = list.iterator();
+			        Iterator<SnipVarItem> i = list.iterator();
 			        while (i.hasNext()) {
 			            SnipVarItem item = (SnipVarItem)i.next();
 			            String original = "$${" + item.getOriginal() + "}";

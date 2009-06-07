@@ -9,7 +9,7 @@
 		
 		<view name="Snippets"
 			icon="icons/obj16/snippet.gif"
-			category="com.rohanclan.afae"
+			category="AfaeEditor.category"
 			class="com.rohanclan.snippets.views.SnipTreeView"
 			id="com.rohanclan.snippets.views.SnipTreeViewId">
 		</view>
@@ -56,11 +56,6 @@
 	
 	<!-- //// //// -->
 	<extension point="org.eclipse.ui.commands">
-		<category
-			name="Afae Editor"
-			description="Afae Editor key bindings"
-			id="Afae.commandCategory">
-		</category>
 		
 		<command
 			name="Insert Snippet"
@@ -75,17 +70,15 @@
 		<key sequence="M3+SPACE"
 			commandId="AfaeSnippets.InsertSnippet"
 			contextId="org.eclipse.ui.textEditorScope"
-			schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
-			platform="carbon"
+			schemeId="org.eclipse.ui.emacsAcceleratorConfiguration"
 		>
 		</key>
 		
 		<!-- /// NON Mac /// alt+shift+space -->
-		<key sequence="M3+M2+SPACE"
+		<key sequence="M3+SPACE"
 			commandId="AfaeSnippets.InsertSnippet"
 			contextId="org.eclipse.ui.textEditorScope"
 			schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
-			platform="carbon"
 		>
 		</key>
 	</extension>

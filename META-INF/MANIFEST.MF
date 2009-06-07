@@ -1,10 +1,10 @@
 Manifest-Version: 1.0
 Bundle-Name: Snippets Plug-in
 Bundle-SymbolicName: com.rohanclan.snippets;singleton:=true
-Bundle-Version: 0.8.7
+Bundle-Version: 0.8.8
 Bundle-ClassPath: snippets.jar
 Bundle-Activator: com.rohanclan.snippets.SnippetsPlugin
-Bundle-Localization: plugin
+Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.core.resources,
@@ -13,9 +13,10 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.ui.ide,
  com.rohanclan.afae
 Eclipse-LazyStart: true
-Bundle-Vendor: RohanClan
+Bundle-Vendor: Rob Rohan
 Bundle-ManifestVersion: 2
 Export-Package: com.rohanclan.snippets,
  com.rohanclan.snippets.actions,
  com.rohanclan.snippets.core,
  com.rohanclan.snippets.views
+Bundle-RequiredExecutionEnvironment: J2SE-1.5

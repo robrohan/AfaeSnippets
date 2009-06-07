@@ -39,84 +39,89 @@ import com.rohanclan.snippets.PropertyManager;
  * @author Stephen Milligan
  */
 public class SnipKeySequence {
-    private Properties keyCombos = new Properties();
-    private String keyComboFilePath = "";
-    private String snippetFilePath = "";
-    private static String HEADER_TEXT = "This is the key sequence index file for snippets";
-    private PropertyManager propertyManager;
-    
-    public SnipKeySequence() {
-        propertyManager = new PropertyManager();
+	private Properties keyCombos = new Properties();
+	private String keyComboFilePath = "";
+	private String snippetFilePath = "";
+	private static String HEADER_TEXT = "This is the key sequence index file for snippets";
+	private PropertyManager propertyManager;
+
+	public SnipKeySequence() {
+		propertyManager = new PropertyManager();
 
 		// This ensures that we are notified when the properties are saved
-		//SnippetsPlugin.getDefault().getPropertyStore().addPropertyChangeListener(this);
-		
-		this.keyComboFilePath = new Path(
-			propertyManager.snippetsPath().replace("file:", "")
-		).toOSString() + "/SequenceIndex.properties";
-        
-		//System.out.print(this.keyComboFilePath);
-		
-        //this.keyComboFilePath = SnippetsPlugin.getDefault().getStateLocation().toString() + "/SequenceIndex.properties";
-        
-        loadKeySequences();
-    }
+		// SnippetsPlugin.getDefault().getPropertyStore().addPropertyChangeListener(this);
 
-    /**
-     * Load the key combination index file
-     */
-    private void loadKeySequences() {
-    	File f = new File(this.keyComboFilePath);
-    	//the index file doesn't exist try to make it
-    	if(!f.exists()) {
-    		try	{
-    			f.createNewFile();
-    			FileOutputStream output = new FileOutputStream(f);
-    			keyCombos.store(output, HEADER_TEXT);
-    			output.flush();
-    			output.close();
-    		}catch (IOException ex) {
-    			ex.printStackTrace();
-    		}
-    	}
-    		
-    	try {
-    		FileInputStream input = new FileInputStream(f);
-    		this.keyCombos.load(input);
-    		input.close();
-    	} catch(IOException e){
-    		e.printStackTrace();
-    	}
-    }
-    
-    /**
-     * Sets the index between a sequence and a snippet
-     * @param sequence
-     * @param snippetFile
-     */
+		this.keyComboFilePath = new Path(propertyManager.snippetsPath()
+				.replace("file:", "")).toOSString()
+				+ "/SequenceIndex.properties";
+
+		// System.out.print(this.keyComboFilePath);
+
+		// this.keyComboFilePath =
+		// SnippetsPlugin.getDefault().getStateLocation().toString() +
+		// "/SequenceIndex.properties";
+
+		loadKeySequences();
+	}
+
+	/**
+	 * Load the key combination index file
+	 */
+	private void loadKeySequences() {
+		File f = new File(this.keyComboFilePath);
+		// the index file doesn't exist try to make it
+		if (!f.exists()) {
+			try {
+				f.createNewFile();
+				FileOutputStream output = new FileOutputStream(f);
+				keyCombos.store(output, HEADER_TEXT);
+				output.flush();
+				output.close();
+			} catch (IOException ex) {
+				ex.printStackTrace();
+			}
+		}
+
+		try {
+			FileInputStream input = new FileInputStream(f);
+			this.keyCombos.load(input);
+			input.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * Sets the index between a sequence and a snippet
+	 * 
+	 * @param sequence
+	 * @param snippetFile
+	 */
 	public void setKeySequence(String sequence, String snippetFile) {
 		snippetFile = snippetFile.replace("file:", "");
 		this.keyCombos.setProperty(sequence, snippetFile);
-		
+
 		try {
-			FileOutputStream output = new FileOutputStream(this.keyComboFilePath);
-			keyCombos.store(output,HEADER_TEXT);
+			FileOutputStream output = new FileOutputStream(
+					this.keyComboFilePath);
+			keyCombos.store(output, HEADER_TEXT);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-    
+
 	/**
 	 * Returns the snippet path based on the key sequence
+	 * 
 	 * @param sequence
 	 * @return
 	 */
 	public String getKeySequence(String sequence) {
-		return new Path(
-			this.propertyManager.snippetsPath().replace("file:", "")
-		).toOSString() + this.keyCombos.getProperty(sequence);
+		return new Path(this.propertyManager.snippetsPath()
+				.replace("file:", "")).toOSString()
+				+ this.keyCombos.getProperty(sequence);
 	}
-    
+
 	/**
 	 * 
 	 * @param sequence
@@ -132,7 +137,7 @@ public class SnipKeySequence {
 	public String getSnippetFolder() {
 		return this.snippetFilePath;
 	}
-    
+
 	/**
 	 * 
 	 * @param fileName
@@ -141,42 +146,41 @@ public class SnipKeySequence {
 	public String getSequenceFullPath(String fileName) {
 		return getSequence(getRelativeFromFullPath(fileName));
 	}
-	
+
 	/**
-	 * Takes a full path, and removes the direcotry offset. This is useful if you only know
-	 * the full path to the snippet file.
+	 * Takes a full path, and removes the directory offset. This is useful if
+	 * you only know the full path to the snippet file.
+	 * 
 	 * @param path
 	 * @return
 	 */
-	public String getRelativeFromFullPath(String path){
-		String snippath = new Path(propertyManager.snippetsPath().replace("file:", "")).toOSString();
+	public String getRelativeFromFullPath(String path) {
+		String snippath = new Path(propertyManager.snippetsPath().replace(
+				"file:", "")).toOSString();
 		path = path.replace(snippath, "");
 		return path;
 	}
-	
+
 	/**
 	 * 
 	 * @param fileName
 	 * @return
 	 */
-	public String getSequence(String fileName) 
-	{
-		if(this.keyCombos.containsValue(fileName)) 
-		{
+	@SuppressWarnings("unchecked")
+	public String getSequence(String fileName) {
+		if (this.keyCombos.containsValue(fileName)) {
 			Enumeration e = this.keyCombos.propertyNames();
 			String sequence;
-			
-			while (e.hasMoreElements())
-			{
+
+			while (e.hasMoreElements()) {
 				sequence = e.nextElement().toString();
-			
-				if(this.keyCombos.getProperty(sequence).equals(fileName)) 
-				{
+
+				if (this.keyCombos.getProperty(sequence).equals(fileName)) {
 					return sequence;
 				}
 			}
 		}
-		
+
 		return null;
-    }
+	}
 }
